@@ -9,6 +9,7 @@ namespace TestLesson
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello");
         }
     }
 }
