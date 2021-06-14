@@ -7,6 +7,9 @@ namespace TestLesson
     {
         static void Main(string[] args)
         {
+        
+            #region Урок1 /числа/
+        /*
             string str = "Преобразование чисел";
             int x = 12;
             sbyte y = -127;
@@ -33,7 +36,17 @@ namespace TestLesson
             double x2 = (-b + Math.Sqrt(D)) / 2 * a;
             // распарсить 
             Console.WriteLine($"Корни уравнения {x1} и {x2}");
-
+            */
+            #endregion
+            
+            #region Урок 2 /строки/ 
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // для кириллицы если не отображается
+            Console.WriteLine("Привет мир!");
+            char chr = 'a'; // 2 байта
+            string str = "строка символов";
+            Console.WriteLine($"Длина строки ={str.Length * 2} байт");
+            Console.WriteLine($"Читаю посимвольно как из массива {str[0]+str[3]+str[4]}"); // "сок"
+            #endregion
         }
     }
 }
