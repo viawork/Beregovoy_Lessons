@@ -1,6 +1,6 @@
 ﻿
 using System;
-
+using System.Collections.Generic;
 
 namespace TestLesson
 {
@@ -76,47 +76,39 @@ namespace TestLesson
             //Console.WriteLine($"1<=2  ? { 1 <= 2}");
             //Console.WriteLine($"1>2  ? { 1 > 2}");
             //Console.WriteLine($"1<2  ? { 1 < 2}");
-            
-            Console.WriteLine("Введите свое имя:");
-            string name = Console.ReadLine();
-            if (name == "Игорь")
-            {
-                Console.WriteLine("Угадал! Я Игорь!");
-            }
-            else
-            {
-                Console.WriteLine("Ничего подобного! Я Игорь!");
-            }
+            //switch (name)
+            //{
+            //    case "Игорь":
+            //        name = "Игореха";
+            //        break;
+            //    case "Саша":
+            //        name = "Сяня";
+            //        break;
+            //    case "Федор":
+            //        name = "Федя";
+            //        break;
+            //    default:
+            //        name = "ХЗ кто ты";
+            //        break;
+            //}
 
-            switch (name)
-            {
-                case "Игорь":
-                    name = "Игореха";
-                    break;
-                case "Саша":
-                    name = "Сяня";
-                    break;
-                case "Федор":
-                    name = "Федя";
-                    break;
-                default:
-                    name = "ХЗ кто ты";
-                    break;
-            }
-
-            Console.WriteLine($"Здорово, {name}! Идем в магазин! ");
+            //Console.WriteLine($"Здорово, {name}! Идем в магазин! ");
             int totalMoney = 1000;
             int minPrice = 20;
             int maxPrice = 500;
+
+            List<int> log = new List<int>();// список покупок
+
             Console.WriteLine("Введите цену товара");
-            while (totalMoney>minPrice)
+            while (totalMoney > minPrice)
             {
                 int price = 0;
                 if (int.TryParse(Console.ReadLine(), out price))
                 {
-                    if (price>=minPrice&&price<=maxPrice&&price<totalMoney)
+                    if (price >= minPrice && price <= maxPrice && price < totalMoney)
                     {
-                        totalMoney-=price ;
+                        log.Add(price);
+                        totalMoney -= price;
                         Console.WriteLine($"Покупаем, остаток {totalMoney}");
                     }
                     else
@@ -129,21 +121,24 @@ namespace TestLesson
                         {
                             Console.WriteLine("Слишком дешевый товар нам не нужен!");
                         }
-                        else
-                        {
-                            Console.WriteLine("Закончилось бабло! Остаток {0}",totalMoney);
-                            break;
-                        }
-
                     }
                 }
                 else
                 {
                     Console.WriteLine("Что-то не то ввели, надо число!");
                 }
-
             }
-            
+            for (int i = 0; i < log.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}) Куплено на сумму {log[i]}");
+            }
+            Console.WriteLine($"Всего покупок {log.Count}"); log.RemoveRange(1, 3);
+            Console.WriteLine("Закончилось бабло! Остаток {0}", totalMoney);
+            Console.WriteLine("удалили 3 покупки, осталось" + log.Count);
+            foreach (int elem in log)
+            {
+                Console.WriteLine(elem);
+            }
 
             #endregion
         }
