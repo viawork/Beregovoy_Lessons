@@ -134,6 +134,7 @@ namespace TestLesson
             }
             Console.WriteLine($"Всего покупок {log.Count}"); log.RemoveRange(1, 3);
             Console.WriteLine("Закончилось бабло! Остаток {0}", totalMoney);
+            
             Console.WriteLine("удалили 3 покупки, осталось" + log.Count);
             foreach (int elem in log)
             {
