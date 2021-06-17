@@ -6,13 +6,17 @@ namespace TestLesson
 {
     class Program
     {
+        #region Классы
+
+        //    перечисления
+        enum Models {Mersedes,VW,Toyota,Honda, Porshe, Ford  };
         class Car
         {
             public static string type = "Автомобиль"; // статическая переменная для всех экземпляров 
             public string regNum = "<Номер>"; // видимость в проекте
-            private string model = "Mersedes";                          // видимость в классе
+            private Models model = Models.Mersedes;                          // видимость в классе
             protected int maxSpeed = 100;                               // видимость в классе и наследниках
-            public Car(string regNum, string model, int maxSpeed = 200) //конструктор        
+            public Car(string regNum, Models model, int maxSpeed = 200) //конструктор        
             {
                 this.regNum = regNum;
                 this.model = model;
@@ -34,21 +38,23 @@ namespace TestLesson
         class Bus : Car //задаю класс наследник 
         {
             private byte seatsNum = 10;
-            public Bus(string regNum2, string model2, int maxSpeed2, byte seats) : base(regNum2, model2, maxSpeed2)
+            public Bus(string regNum2, Models model2, int maxSpeed2, byte seats) : base(regNum2, model2, maxSpeed2)
             {
                 seatsNum = seats;   // разные идентификаторы переменных поэтому можно и без this
-                maxSpeed = 150;     // protected переменная доступна и в наследнике и переопределится в наследник после инициализации Bus
-                maxSpeed2 = 250;    // уже поздно не сработает в base()
+                //maxSpeed = 150;     // protected переменная доступна и в наследнике и переопределится в наследник после инициализации Bus
+                //maxSpeed2 = 250;    // уже поздно не сработает в base()
                 type = "Бусик";
             }
 
             public override string ToString() // добавляю seatsNum
             {
-                string str = base.ToString() + $" мест:{seatsNum} " +;
+                string str = base.ToString() + $" мест:{seatsNum} " ;
                 //Console.WriteLine(str);
                 return str;
             }
         }
+        #endregion
+
         static void Main(string[] args)
         {
             //Console.WriteLine("Начинаем");
@@ -61,14 +67,14 @@ namespace TestLesson
             def.Print();
 
             Car.type = "Машина";
-            Car toyota = new Car(regNum: "T532NE", model: "Toyota");
+            Car toyota = new Car(regNum: "T532NE", model: Models.Toyota);
             toyota.Print();
 
 
-            Bus sprinter = new Bus("T512EE", "Mers Sprinter", seats: 20, maxSpeed2: 200);
+            Bus sprinter = new Bus("T512EE", Models.Mersedes, seats: 20, maxSpeed2: 220);
             sprinter.Print();
 
-            Bus ikarus = new Bus("T123", "Ikarus", seats: 50, maxSpeed2: 120);
+            Bus ikarus = new Bus("T123", Models.Ford, seats: 50, maxSpeed2: 120);
             Car.type = "Автобус"; // переопределяю дефолтный тип
             ikarus.Print();
 
