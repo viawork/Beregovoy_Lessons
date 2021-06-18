@@ -9,7 +9,7 @@ namespace TestLesson
         #region Классы
 
         //    перечисления
-        enum Models {Mersedes,VW,Toyota,Honda, Porshe, Ford  };
+        enum Models { Mersedes, VW, Toyota, Honda, Porshe, Ford };
         class Car
         {
             public static string type = "Автомобиль"; // статическая переменная для всех экземпляров 
@@ -48,28 +48,32 @@ namespace TestLesson
 
             public override string ToString() // добавляю seatsNum
             {
-                string str = base.ToString() + $" мест:{seatsNum} " ;
+                string str = base.ToString() + $" мест:{seatsNum} ";
                 //Console.WriteLine(str);
                 return str;
             }
         }
         #endregion
-
+        #region Классы массив 
         class Table // таблица умножения
         {
-            public byte x = 5;
-            public byte y = 7;
-            int[,] tbl = new int[x, y];
-            public Table(byte x, byte y) 
+            byte x = 5;
+            byte y = 7;
+            private int[,] tbl ;
+            public Table()
+            {
+                tbl = new int[x+1, y+1];
+                CreateTbl();
+            }
+            public Table(byte x, byte y)
             {
                 this.x = x;
                 this.y = y;
-                
+                tbl = new int[x+1, y+1];
                 CreateTbl();
             }
             void CreateTbl()
             {
-                
                 for (var i = 1; i <= x; i++)
                 {
                     for (int j = 1; j <= y; j++)
@@ -78,28 +82,54 @@ namespace TestLesson
                     }
                 }
             }
-             
-            public void Print() 
+
+            public void Print()
             {
-                
+                for (int j = 1; j <= y; j++)
+                {
+                    Console.Write($"\t{j}");
+                }
+
                 for (var i = 1; i <= x; i++)
                 {
+                    Console.Write($"\n{i}"); //порядковый номер строки
                     for (int j = 1; j <= y; j++)
                     {
-                        tbl[i, j] = i * j;
+                        Console.Write($"\t{tbl[i, j]}");
                     }
                 }
-            }    
+            }
 
         }
+        #endregion
         static void Main(string[] args)
         {
-           Console.WriteLine("Изучаем \t форматирование \t текста [слэш t] это  табуляция\n [слэш n] - перенос строки ");
-            Console.WriteLine();
+            //Console.WriteLine("Изучаем \t форматирование \t текста [слэш t] это  табуляция\n [слэш n] - перенос строки ");
+            Console.WriteLine("\n Введи Размерность");
+            byte razm = 0;
+            while (byte.TryParse(Console.ReadLine(),out razm))
+             {
+                Console.WriteLine($"Таблица умножения {razm} X {razm}")             ;
+                Table tbl_ = new Table(razm, razm);
+                tbl_.Print();
+                Console.WriteLine("\n Введи Размерность");
+                }
+                /*
+            Console.WriteLine("Таблица умножения 5 X 7");
+            Table tbl = new Table();
+            tbl.Print();
+
+            Console.WriteLine("\nТаблица умножения 10X10");
+            Table tbl2 = new Table(10, 10);
+            tbl2.Print();
+            Table tbl3 = tbl;
+            tbl3.Print();
+
+            */
 
 
             #region Классы
-           
+
             //// определяю глобальные поля после инициализации
 
             //Car def = new Car();
