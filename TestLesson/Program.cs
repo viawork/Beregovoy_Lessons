@@ -55,28 +55,68 @@ namespace TestLesson
         }
         #endregion
 
+        class Table // таблица умножения
+        {
+            public byte x = 5;
+            public byte y = 7;
+            int[,] tbl = new int[x, y];
+            public Table(byte x, byte y) 
+            {
+                this.x = x;
+                this.y = y;
+                
+                CreateTbl();
+            }
+            void CreateTbl()
+            {
+                
+                for (var i = 1; i <= x; i++)
+                {
+                    for (int j = 1; j <= y; j++)
+                    {
+                        tbl[i, j] = i * j;
+                    }
+                }
+            }
+             
+            public void Print() 
+            {
+                
+                for (var i = 1; i <= x; i++)
+                {
+                    for (int j = 1; j <= y; j++)
+                    {
+                        tbl[i, j] = i * j;
+                    }
+                }
+            }    
+
+        }
         static void Main(string[] args)
         {
-            //Console.WriteLine("Начинаем");
+           Console.WriteLine("Изучаем \t форматирование \t текста [слэш t] это  табуляция\n [слэш n] - перенос строки ");
+            Console.WriteLine();
+
+
             #region Классы
+           
+            //// определяю глобальные поля после инициализации
 
-            // определяю глобальные поля после инициализации
+            //Car def = new Car();
+            //def.regNum = "TT55EE";
+            //def.Print();
 
-            Car def = new Car();
-            def.regNum = "TT55EE";
-            def.Print();
-
-            Car.type = "Машина";
-            Car toyota = new Car(regNum: "T532NE", model: Models.Toyota);
-            toyota.Print();
+            //Car.type = "Машина";
+            //Car toyota = new Car(regNum: "T532NE", model: Models.Toyota);
+            //toyota.Print();
 
 
-            Bus sprinter = new Bus("T512EE", Models.Mersedes, seats: 20, maxSpeed2: 220);
-            sprinter.Print();
+            //Bus sprinter = new Bus("T512EE", Models.Mersedes, seats: 20, maxSpeed2: 220);
+            //sprinter.Print();
 
-            Bus ikarus = new Bus("T123", Models.Ford, seats: 50, maxSpeed2: 120);
-            Car.type = "Автобус"; // переопределяю дефолтный тип
-            ikarus.Print();
+            //Bus ikarus = new Bus("T123", Models.Ford, seats: 50, maxSpeed2: 120);
+            //Car.type = "Автобус"; // переопределяю дефолтный тип
+            //ikarus.Print();
 
             #endregion
 
