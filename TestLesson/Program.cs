@@ -188,20 +188,71 @@ namespace TestLesson
                 Console.WriteLine("Нет дублирований");
 
         }
-        static void Task7()
+        static void Task7()//Переставить элементы массива arr в обратном порядке используя вспомогательный массив
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int[] arrRevers = new int[arr.Length]; // создаю массимв такого же размера
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arrRevers[arr.Length-1 - i] = arr[i];
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine( "\t"+arr[i]+" \t"+ arrRevers[i]);
+            }
+
         }
-        static void Task8()
+        static void Task8() //Переставить элементы массива в обратном порядке НЕ используя вспомогательный массив
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("До " + arr[i] );
+            }
+            int val;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                val = arr[i];
+                arr[i] = arr[arr.Length - 1 - i];
+                arr[arr.Length - 1 - i] = arr[i];
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("После " + arr[i]);
+            }
+
         }
+
+        static int[,] m2 = new int[,] { { 11, 22, 31 }, { 4, 53, 6 }, { 7, 81, 90 } };
         static void Task9()
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int m2Summ = 0;
+            foreach (var item in m2)
+            {
+                m2Summ += item;
+            }
+            Console.WriteLine("Сумма ="+m2Summ);
+            // 
+            m2Summ = 0;
+            for (int i = 0; i < m2.GetLength(0)            ; i++)
+            {
+                for (int j   = 0; j < m2.GetLength(1); j++)
+                {
+                    m2Summ += m2[i,j];
+                }
+            }
+
+            Console.WriteLine("Сумма 2=" + m2Summ);
+            // 3 способ
+            m2Summ = 0;
+            //arr.Sum();
+
         }
         static void Task10()
         {
@@ -224,12 +275,12 @@ namespace TestLesson
             //Task1();
             //Task2();
             //Task3();
-            nTsk = 3;
+            
 
-            Task4();
-            Task5();
-            Task6();
-
+            //Task4();
+            //Task5();
+            //Task6();
+            nTsk = 6;
             Task7();
             Task8();
             Task9();
