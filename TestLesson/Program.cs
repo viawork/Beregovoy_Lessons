@@ -144,22 +144,49 @@ namespace TestLesson
             Console.WriteLine($"2-й способ Сумма элементов:  {aSumm} ");
         }
 
-        static void Task4()
+        static void Task4() /// Заполнить массив по возрастанию от 1 до 100
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            byte[] arr2 = new byte[100];
+            for (int i = 0; i < 100; i++)
+            {
+                arr2[i] = (byte)(i + 1);
+                Console.WriteLine($"arr2[{i}]={arr2[i]}");
+            }
+            
         }
 
 
-        static void Task5()
+        static void Task5() /// Создать и заполнить массив случайными целыми числами
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int[] arrRnd = new int[25];
+            Random rnd = new Random();
+            for (int i = 0; i < arrRnd.Length; i++)
+            {
+                arrRnd[i] = rnd.Next(1, 500);
+                Console.WriteLine(arrRnd[i]);
+            }
         }
-        static void Task6()
+        static void Task6() //Проверить, что в массиве нет одинаковых чисел
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            Array.Sort(arr);
+            bool dupl = false;
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i-1]==arr[i])
+                {
+                    Console.WriteLine($"Дублируются элементы ({i},{i-1}) {arr[i]} и {arr[i-1]}");
+                    dupl = true;
+                }
+            }
+            if (!dupl)
+                Console.WriteLine("Нет дублирований");
+
         }
         static void Task7()
         {
@@ -194,10 +221,10 @@ namespace TestLesson
         
         static void Main(string[] args) 
         {
-            Task1();
-            Task2();
-            Task3();
-            
+            //Task1();
+            //Task2();
+            //Task3();
+            nTsk = 3;
 
             Task4();
             Task5();
