@@ -1,6 +1,6 @@
 ﻿
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace TestLesson
 {
@@ -59,17 +59,18 @@ namespace TestLesson
         {
             byte x = 5;
             byte y = 7;
-            private int[,] tbl ;
+            int[,] tbl;
             public Table()
             {
-                tbl = new int[x+1, y+1];
+                tbl = new int[x + 1, y + 1];
+
                 CreateTbl();
             }
             public Table(byte x, byte y)
             {
                 this.x = x;
                 this.y = y;
-                tbl = new int[x+1, y+1];
+                tbl = new int[x + 1, y + 1];
                 CreateTbl();
             }
             void CreateTbl()
@@ -100,32 +101,151 @@ namespace TestLesson
                 }
             }
 
+
+        }
+        //Д/з по массивам
+        #endregion
+        #region Tasks
+        static int[] arr = { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+        static byte nTsk=0;
+        static void Task1()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+            Array.Sort(arr);
+            Console.WriteLine($"Минимальный элемент  {arr[0]}");
+            Console.WriteLine($"2-й способ Минимальный элемент  {arr.Min() }");
+        }
+        static void Task2()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+            //int[] arr = { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+            Array.Sort(arr);
+            Console.WriteLine($"2 максимальных элемента:  {arr[arr.Length-1]} и {arr[arr.Length - 2]}");
+            //Console.WriteLine($"2 максимальных элемента:  {arr.Max()} и {arr[arr.Max(]}");
         }
         #endregion
-        static void Main(string[] args)
+        static void Task3()
         {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+            //int[] arr = { 5, 12, 13, 2, 1, 9, 15, 19, 6 };
+
+            Console.WriteLine($"Сумма элементов:  {arr.Sum()} ");
+
+            //2-й способ в лоб
+            int aSumm = 0;
+            foreach (var item in arr)
+            {
+                aSumm += item;
+            }
+
+            Console.WriteLine($"2-й способ Сумма элементов:  {aSumm} ");
+        }
+
+        static void Task4()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+
+
+        static void Task5()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task6()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task7()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task8()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task9()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task10()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task11()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        static void Task12()
+        {
+            nTsk++;
+            Console.WriteLine($"Task № {nTsk} ");
+        }
+        
+        static void Main(string[] args) 
+        {
+            Task1();
+            Task2();
+            Task3();
+            
+
+            Task4();
+            Task5();
+            Task6();
+
+            Task7();
+            Task8();
+            Task9();
+
+            Task10();
+            Task11();
+            Task12();
+
+
+
+
+            //for (int i = 1; i <= 12; i++)
+            //{
+            //   Task1();
+            //}
+
+
+            // массивы
+
             //Console.WriteLine("Изучаем \t форматирование \t текста [слэш t] это  табуляция\n [слэш n] - перенос строки ");
+            /*
             Console.WriteLine("\n Введи Размерность");
-            byte razm = 0;
-            while (byte.TryParse(Console.ReadLine(),out razm))
-             {
-                Console.WriteLine($"Таблица умножения {razm} X {razm}")             ;
-                Table tbl_ = new Table(razm, razm);
+                byte razm = 0;
+                while (byte.TryParse(Console.ReadLine(),out razm))
+                 {
+                    Console.WriteLine($"Таблица умножения {razm} X {razm}")             ;
+                    Table tbl_ = new Table(razm, razm);
                 tbl_.Print();
-                Console.WriteLine("\n Введи Размерность");
-                }
-                /*
-            Console.WriteLine("Таблица умножения 5 X 7");
-            Table tbl = new Table();
-            tbl.Print();
 
-            Console.WriteLine("\nТаблица умножения 10X10");
-            Table tbl2 = new Table(10, 10);
-            tbl2.Print();
-            Table tbl3 = tbl;
-            tbl3.Print();
+                    Console.WriteLine("\n Введи Размерность");
+                    }
+        /*
+       Console.WriteLine("Таблица умножения 5 X 7");
+       Table tbl = new Table();
+       tbl.Print();
 
-            */
+       Console.WriteLine("\nТаблица умножения 10X10");
+       Table tbl2 = new Table(10, 10);
+       tbl2.Print();
+       Table tbl3 = tbl;
+       tbl3.Print();
+
+       */
 
 
             #region Классы
