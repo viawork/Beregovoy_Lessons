@@ -213,11 +213,11 @@ namespace TestLesson
                 Console.WriteLine("До " + arr[i] );
             }
             int val;
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length/2; i++)
             {
                 val = arr[i];
                 arr[i] = arr[arr.Length - 1 - i];
-                arr[arr.Length - 1 - i] = arr[i];
+                arr[arr.Length - 1 - i] = val;
             }
 
             for (int i = 0; i < arr.Length; i++)
@@ -249,53 +249,104 @@ namespace TestLesson
             }
 
             Console.WriteLine("Сумма 2=" + m2Summ);
-            // 3 способ
-            m2Summ = 0;
-            //arr.Sum();
+            
 
         }
-        static void Task10()
+        static void Task10() //Заполнить двумерный массив 10 на 10 случайными числами от 1 до 9 и вывести на экран консоли
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int[,] arr2 = new int[10, 10];
+            Random rnd = new Random();
+            
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    arr2[i, j] = rnd.Next(1, 9);
+                }
+            }
+            byte ii = 0;
+            foreach (var item in arr2)
+            {
+                Console.Write($"\t{item}");
+                ii++;
+                if (ii==10)
+                {
+                    ii = 0;
+                    Console.WriteLine(); // перевод строки
+                }
+            }
+
         }
         static void Task11()
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int[] arr = new int[m2.Length];
+            int cnt = 0;
+            foreach (var item in m2)
+            {
+                arr[cnt] = item;
+                Console.WriteLine(arr[cnt]);
+            }
         }
-        static void Task12()
+        static void Task12()/// Заполнить двумерный массив 10 на 10 случайными числами от 1 до 99 и определить количество четных чисел в массиве
         {
             nTsk++;
             Console.WriteLine($"Task № {nTsk} ");
+            int[,] arr2 = new int[10, 15];
+            Random rnd = new Random();
+
+            for (int i = 0; i < arr2.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr2.GetLength(1); j++)
+                {
+                    arr2[i, j] = rnd.Next(1, 99);
+                }
+            }
+            byte ii = 0;
+            byte cntPar = 0; // счетчик четных
+            foreach (var item in arr2)
+            {
+                if (item%2==0)
+                {
+                    cntPar++;
+                }
+                Console.Write($"\t{item}");
+                ii++;
+                if (ii == 10)
+                {
+                    ii = 0;
+                    Console.WriteLine(); // перевод строки
+                }
+            }
+            Console.WriteLine($"\nЧетных чисел {cntPar} \nНЕчетных чисел { arr2.Length-cntPar} ");
+
         }
-        
+
         static void Main(string[] args) 
         {
-            //Task1();
-            //Task2();
-            //Task3();
-            
+            #region Tasks array
 
-            //Task4();
-            //Task5();
-            //Task6();
-            nTsk = 6;
+            Task1();
+            Task2();
+            Task3();
+
+
+            Task4();
+            Task5();
+            Task6();
+
             Task7();
             Task8();
             Task9();
 
+            //nTsk = 9;
             Task10();
             Task11();
             Task12();
-
-
-
-
-            //for (int i = 1; i <= 12; i++)
-            //{
-            //   Task1();
-            //}
+            #endregion
 
 
             // массивы
