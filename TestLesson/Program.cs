@@ -20,16 +20,17 @@ namespace TestLessons
 
             #region Классы -контейнер для методов и namespase-s
 
-
             #endregion
 
 
 
             #region Tasks array
             //TasksArray t = new TasksArray();    
+            /*
             TasksArray.Task1();
             TasksArray.Task2();
             TasksArray.Task3();
+            */
 
             // по идее нужен iEnumerate  и тогда можно перебрать все методы но пока я их не знаю 
             /*foreach (var item in TasksArray)
@@ -78,6 +79,9 @@ namespace TestLessons
        Console.WriteLine("\nТаблица умножения 10X10");
        Table tbl2 = new Table(10, 10);
        tbl2.Print();
+        
+            Console.WriteLine("\nя тут");
+
        Table tbl3 = tbl;
        tbl3.Print();
 
