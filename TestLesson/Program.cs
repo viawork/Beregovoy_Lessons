@@ -7,14 +7,14 @@ namespace TestLessons
     class Program
     {
         #region MyRegion
-
+        Console.WriteLine( "Дял проверки " );
         #endregion
 
-        
+
         //    перечисления
-        
-        
-        
+
+
+
         static void Main(string[] args) 
         {
 
